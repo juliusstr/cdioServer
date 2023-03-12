@@ -1,42 +1,42 @@
 package misc;
 
 public class Robot {
-    private int xPos,
+    private double xPos,
                 yPos;
-    private double  direction,
-                    speed,
+    private Vector2D directionVector;
+    private double  speed,
                     angelSpeed;
 
-    public Robot(int xPos, int yPos, double direction) {
+    public Robot(double xPos, double yPos, Vector2D directionVector) {
         this.xPos = xPos;
         this.yPos = yPos;
-        this.direction = direction;
+        this.directionVector = directionVector.clone();
         speed = 0;
         angelSpeed = 0;
     }
 
-    public int getxPos() {
+    public double getxPos() {
         return xPos;
     }
 
-    public void setxPos(int xPos) {
+    public void setxPos(double xPos) {
         this.xPos = xPos;
     }
 
-    public int getyPos() {
+    public double getyPos() {
         return yPos;
     }
 
-    public void setyPos(int yPos) {
+    public void setyPos(double yPos) {
         this.yPos = yPos;
     }
 
-    public double getDirection() {
-        return direction;
+    public Vector2D getDirection() {
+        return directionVector;
     }
 
-    public void setDirection(double direction) {
-        this.direction = direction;
+    public void setDirection(Vector2D directionVector) {
+        this.directionVector = directionVector;
     }
 
     public double getSpeed() {

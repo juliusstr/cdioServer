@@ -10,12 +10,13 @@ import java.util.Iterator;
 import java.util.List;
 import misc.Ball;
 import misc.Robot;
+import misc.Vector2D;
 import nav.NavAlgoFaseOne;
 
 public class RoutePlanerFaseOne {
     private NavAlgoFaseOne nav = new NavAlgoFaseOne();
     private List<Ball> balls = new ArrayList();
-    private Robot robot = new Robot(0, 0, 0.0);
+    private Robot robot = new Robot(0, 0, new Vector2D(1,1));
 
     public RoutePlanerFaseOne() {
     }
@@ -39,9 +40,9 @@ public class RoutePlanerFaseOne {
             }
 
             command = this.nav.nextCommand();
-            if (command.equals("stop -t;stop -d")) {
+            if (command.equals("stop -t;stop -d") || command.equals("stop -t -d")) {
                 this.balls.remove(ball);
-                command = this.nextCommand();
+                //command = this.nextCommand();
             }
             return command;
         }
@@ -64,5 +65,17 @@ public class RoutePlanerFaseOne {
         }
 
         return closestBall;
+    }
+
+    public Robot getRobot(){
+        return robot;
+    }
+
+    public Ball getNextBall(){
+        return getClosestBall();
+    }
+
+    public boolean isDone(){
+        return balls.isEmpty();
     }
 }

@@ -2,6 +2,7 @@ package server;
 
 import misc.Ball;
 import misc.Robot;
+import misc.Vector2D;
 import nav.NavAlgoFaseOne;
 
 import java.awt.*;
@@ -34,7 +35,7 @@ class Server {
 
         NavAlgoFaseOne nav = new NavAlgoFaseOne();
         Ball ball = new Ball(20,20,10,new Color(2,2,2),true);
-        misc.Robot robot = new Robot(1,1,1);
+        misc.Robot robot = new Robot(1,1,new Vector2D(1,1));
         nav.setNextBall(ball);
         nav.setRobot(robot);
 
