@@ -57,7 +57,7 @@ public class RoutePlanerFaseOne {
         double bestDist = Double.MAX_VALUE;
         Ball closestBall = null;
         for (Ball ball : balls) {
-            double dist = Math.sqrt(Math.pow((double)(ball.getxPos() - this.robot.getxPos()), 2.0) + Math.pow((double)(ball.getyPos() - this.robot.getyPos()), 2.0));
+            double dist = Math.sqrt(Math.pow((ball.getxPos() - this.robot.getxPos()), 2.0) + Math.pow((ball.getyPos() - this.robot.getyPos()), 2.0));
             if (bestDist > dist) {
                 closestBall = ball;
                 bestDist = dist;
