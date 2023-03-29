@@ -15,6 +15,7 @@ public class Robot {
         angelSpeed = 0;
     }
 
+
     public double getxPos() {
         return xPos;
     }
@@ -29,6 +30,10 @@ public class Robot {
 
     public void setyPos(double yPos) {
         this.yPos = yPos;
+    }
+    public void setPos(double x, double y){
+        xPos = x;
+        yPos = y;
     }
 
     public Vector2D getDirection() {
@@ -53,5 +58,19 @@ public class Robot {
 
     public void setAngelSpeed(double angelSpeed) {
         this.angelSpeed = angelSpeed;
+    }
+
+    public void updatePos(Ball a, Ball b){
+        Ball back = b;
+        Ball front  = a;
+        if (!back.getColor().equals(BallClassifier.BALCK)){
+            Ball temp = front;
+            front = back;
+            back = temp;
+        }
+        setPos(front.getxPos(), front.getyPos());
+        Vector2D dir = new Vector2D(front.getxPos(), front.getyPos());
+        dir.subtract(new Vector2D(back.getxPos(), back.getyPos()));
+        setDirection(dir);
     }
 }

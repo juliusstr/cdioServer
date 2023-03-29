@@ -19,6 +19,17 @@ public class Ball {
         this.isInPx = isInPx;
     }
 
+    @Override
+    public String toString() {
+        return "Ball{" +
+                "xPos=" + xPos +
+                ", yPos=" + yPos +
+                ", radius=" + radius +
+                ", color=" + color +
+                ", isInPx=" + isInPx +
+                '}';
+    }
+
     public void setXPos(int xPos) {
         this.xPos = xPos;
     }
@@ -49,6 +60,10 @@ public class Ball {
 
     public Color getColor() {
         return color;
+    }
+
+    public void setColor(Color color){
+        this.color = new Color(color.getRGB());
     }
 
     public boolean getIsInPx(){

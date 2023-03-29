@@ -63,7 +63,7 @@ public class ImgRec {
 
             // Apply HoughCircles to detect circles in the image
             Mat circles = new Mat();
-            Imgproc.HoughCircles(grayImage, circles, Imgproc.HOUGH_GRADIENT_ALT, 2.5, 0.5, 200, 0.67, 4, 20);
+            Imgproc.HoughCircles(grayImage, circles, Imgproc.HOUGH_GRADIENT_ALT, 2.5, 9, 200, 0.67, 4, 20);
 
 
             Imgproc.cvtColor(grayImage, grayImage, Imgproc.COLOR_GRAY2BGR);
@@ -71,7 +71,7 @@ public class ImgRec {
             for (int i = 0; i < circles.cols(); i++) {
                 double[] circle = circles.get(0, i);
                 Point center = new Point(Math.round(circle[0]), Math.round(circle[1]));
-                System.out.println("x: " + center.x + "y: " + center.y);
+                System.out.println("x: " + center.x + "   y: " + center.y);
                 int radius = (int) Math.round(circle[2]);
                 Imgproc.circle(frame, center, radius, new Scalar(0, 0, 255), 2);
                 Imgproc.circle(grayImage, center, radius, new Scalar(0, 0, 255), 2);

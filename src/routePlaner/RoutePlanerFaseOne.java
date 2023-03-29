@@ -78,4 +78,8 @@ public class RoutePlanerFaseOne {
     public boolean isDone(){
         return balls.isEmpty();
     }
+
+    public void clearBalls(){
+        balls.clear();
+    }
 }
