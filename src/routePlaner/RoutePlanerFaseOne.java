@@ -42,6 +42,7 @@ public class RoutePlanerFaseOne {
             command = this.nav.nextCommand();
             if (command.equals("stop -t;stop -d") || command.equals("stop -t -d")) {
                 this.balls.remove(ball);
+                command = "collect -g4 -s3";
                 //command = this.nextCommand();
             }
             return command;

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BallStabilizer {
 
-    private static final int BUFFERsIZE = 10;
+    private static final int BUFFERsIZE = 20;
 
     private ArrayList<Ball> blackCircle;
     private ArrayList<Ball> redCircle;

@@ -10,7 +10,7 @@ import java.util.Vector;
 
 public class NavAlgoFaseOne {
     public static final double ANGLE_ERROR = 0.04;
-    public static final double DISTANCE_ERROR = 2;
+    public static final double DISTANCE_ERROR = 3;
     public static final boolean SIMULATE = false;
 
 
@@ -64,8 +64,8 @@ public class NavAlgoFaseOne {
                 command += "r";
             }
             double turnSpeed = Math.abs(angleDelta / 2);
-            if (turnSpeed > 0.1)
-                turnSpeed = 0.1;
+            if (turnSpeed > 0.2)
+                turnSpeed = 0.2;
             command += " -s" + String.format("%.2f", turnSpeed).replace(',','.') + "";
         } else {
             command += "stop -t";
@@ -80,8 +80,8 @@ public class NavAlgoFaseOne {
         }
         if(distDelta > DISTANCE_ERROR){
             double speed = distDelta/2;
-            if (speed > 4)
-                speed = 4;
+            if (speed > 5)
+                speed = 5;
             command += ";drive -s" + String.format("%.2f", speed).replace(',','.');
         } else {
             command += ";stop -d";
