@@ -1,6 +1,7 @@
 package misc;
 
 import exceptions.NoGoodCircleData;
+import misc.ball.Ball;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,8 @@
 package nav;
 
-import misc.Ball;
+import misc.ball.Ball;
 import misc.Robot;
 import misc.Vector2D;
-
-import java.awt.*;
-import java.text.DecimalFormat;
-import java.util.Vector;
 
 public class NavAlgoFaseOne {
     public static final double ANGLE_ERROR = 0.04;

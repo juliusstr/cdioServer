@@ -1,5 +1,7 @@
 package misc;
 
+import misc.ball.Ball;
+
 public class Robot {
     private double xPos,
                 yPos;

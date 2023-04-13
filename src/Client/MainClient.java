@@ -2,10 +2,11 @@ package Client;
 
 import exceptions.NoGoodCircleData;
 import imageRecognition.ImgRecFaseOne;
-import misc.Ball;
+import misc.ball.Ball;
 import misc.BallStabilizer;
 import misc.Robot;
 import misc.Vector2D;
+import misc.ball.PrimitiveBall;
 import org.opencv.core.Core;
 import routePlaner.RoutePlanerFaseOne;
 
@@ -16,7 +17,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MainClient {
 
@@ -33,7 +33,7 @@ public class MainClient {
         List<Ball> balls = new ArrayList<>();
         RoutePlanerFaseOne routePlanerFaseOne = new RoutePlanerFaseOne();
 
-        Ball initBall = new Ball(0,0,0,null,false);
+        Ball initBall = new Ball(0,0,0,null,false, PrimitiveBall.Status.UNKNOWN, -1, Ball.Type.UKNOWN);
 
         Robot robot = new Robot(0,0,new Vector2D(1,1));
 
