@@ -11,7 +11,7 @@ import org.opencv.videoio.VideoCapture;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
+//hej
 public class ImgRecFaseOne {
 
     private VideoCapture capture;
