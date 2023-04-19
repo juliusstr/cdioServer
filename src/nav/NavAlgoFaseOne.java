@@ -10,7 +10,7 @@ import java.util.Vector;
 
 public class NavAlgoFaseOne {
     public static final double ANGLE_ERROR = 0.04;
-    public static final double DISTANCE_ERROR = 3;
+    public static final double DISTANCE_ERROR = 50;
     public static final boolean SIMULATE = false;
 
 

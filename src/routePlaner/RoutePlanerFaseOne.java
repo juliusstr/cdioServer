@@ -32,7 +32,7 @@ public class RoutePlanerFaseOne {
     public String nextCommand() {
         String command = "";
         if (this.balls.isEmpty()) {
-            return "exit";
+            return "drop; exit" ;
         } else {
             Ball ball = this.getClosestBall();
             if (!this.nav.getNextBall().equals(ball)) {
@@ -41,8 +41,9 @@ public class RoutePlanerFaseOne {
 
             command = this.nav.nextCommand();
             if (command.equals("stop -t;stop -d") || command.equals("stop -t -d")) {
+                command = "collect -g18 -s4";
                 this.balls.remove(ball);
-                command = "collect -g4 -s3";
+
                 //command = this.nextCommand();
             }
             return command;

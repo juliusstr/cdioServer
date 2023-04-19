@@ -20,7 +20,7 @@ public class ImgRecFaseOne {
 
 
         // Create a new VideoCapture object to get frames from the webcam
-        capture = new VideoCapture(1);
+        capture = new VideoCapture(0);
         System.err.println("Webcam loaded");
 
         // Check if the VideoCapture object was successfully initialized
