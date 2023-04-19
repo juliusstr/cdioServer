@@ -1,7 +1,8 @@
 package imageRecognition;
 
 
-import misc.Ball;
+import misc.ball.Ball;
+import misc.ball.PrimitiveBall;
 import org.opencv.core.*;
 import org.opencv.features2d.SimpleBlobDetector;
 import org.opencv.features2d.SimpleBlobDetector_Params;
@@ -75,7 +76,7 @@ public class ImgRecV2 {
                     int b = (int) colorDoubleArray[0]; // blue value
                     int g = (int) colorDoubleArray[1]; // green value
                     int r = (int) colorDoubleArray[2]; // red value
-                    balls.add(new Ball((int) keypoint.pt.x, (int) keypoint.pt.y, 0, new Color(r, g, b), true));
+                    balls.add(new Ball((int) keypoint.pt.x, (int) keypoint.pt.y, 0, new Color(r, g, b), true, PrimitiveBall.Status.UNKNOWN,0, Ball.Type.UKNOWN));
                 }
             }
 
