@@ -4,6 +4,7 @@ import misc.ball.Ball;
 import misc.ball.PrimitiveBall;
 import org.opencv.core.*;
 import org.opencv.core.Point;
+import org.opencv.highgui.HighGui;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 
