@@ -8,14 +8,14 @@ package routePlaner;
 import java.util.ArrayList;
 import java.util.List;
 import misc.ball.Ball;
-import misc.Robot;
-import misc.Vector2D;
+import misc.Robotv1;
+import misc.Vector2Dv1;
 import nav.NavAlgoFaseOne;
 
 public class RoutePlanerFaseOne {
     private NavAlgoFaseOne nav = new NavAlgoFaseOne();
     private List<Ball> balls = new ArrayList();
-    private Robot robot = new Robot(0, 0, new Vector2D(1,1));
+    private Robotv1 robotv1 = new Robotv1(0, 0, new Vector2Dv1(1,1));
 
     public RoutePlanerFaseOne() {
     }
@@ -49,16 +49,16 @@ public class RoutePlanerFaseOne {
         }
     }
 
-    public void setRobot(Robot robot) {
-        this.robot = robot;
-        this.nav.setRobot(robot);
+    public void setRobot(Robotv1 robotv1) {
+        this.robotv1 = robotv1;
+        this.nav.setRobot(robotv1);
     }
 
     private Ball getClosestBall() {
         double bestDist = Double.MAX_VALUE;
         Ball closestBall = null;
         for (Ball ball : balls) {
-            double dist = Math.sqrt(Math.pow((ball.getxPos() - this.robot.getxPos()), 2.0) + Math.pow((ball.getyPos() - this.robot.getyPos()), 2.0));
+            double dist = Math.sqrt(Math.pow((ball.getxPos() - this.robotv1.getxPos()), 2.0) + Math.pow((ball.getyPos() - this.robotv1.getyPos()), 2.0));
             if (bestDist > dist) {
                 closestBall = ball;
                 bestDist = dist;
@@ -68,8 +68,8 @@ public class RoutePlanerFaseOne {
         return closestBall;
     }
 
-    public Robot getRobot(){
-        return robot;
+    public Robotv1 getRobot(){
+        return robotv1;
     }
 
     public Ball getNextBall(){

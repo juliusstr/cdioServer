@@ -6,7 +6,7 @@ public class Lines {
     private Point p1;
     private Point p2;
 
-    public boolean hit(Vector2D pos, Vector2D dir) {
+    public boolean hit(Vector2Dv1 pos, Vector2Dv1 dir) {
 
         // Calculate the slope and y-intercept of the line
         double slope = (p2.y - p2.y) / (p2.x - p1.x);

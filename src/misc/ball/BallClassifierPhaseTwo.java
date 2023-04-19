@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BallClassifierPhaseTwo {
 
-    private static final Color BLACK = new Color(40, 40, 40);
+    public static final Color BLACK = new Color(40, 40, 40);
     public static final Color RED = new Color(253, 97, 60);
     public static final Color WHITE = new Color(255, 255, 255);
 

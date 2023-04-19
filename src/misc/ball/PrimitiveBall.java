@@ -1,10 +1,9 @@
 package misc.ball;
 
-import misc.Vector2D;
+import misc.Vector2Dv1;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.Objects;
 
 public class PrimitiveBall {
     public enum Status {
@@ -44,12 +43,12 @@ public class PrimitiveBall {
         this.status = Status.UNKNOWN;
     }
 
-    public PrimitiveBall(@NotNull Vector2D vector, Status status){
+    public PrimitiveBall(@NotNull Vector2Dv1 vector, Status status){
         this.xPos = (int) vector.x;
         this.yPos = (int) vector.y;
         this.status = status;
     }
-    public PrimitiveBall(@NotNull Vector2D vector){
+    public PrimitiveBall(@NotNull Vector2Dv1 vector){
         this.xPos = (int) vector.x;
         this.yPos = (int) vector.y;
         this.status = Status.UNKNOWN;
@@ -85,8 +84,8 @@ public class PrimitiveBall {
         return new Point(xPos, yPos);
     }
 
-    public Vector2D getPosVector() {
-        return new Vector2D(xPos, yPos);
+    public Vector2Dv1 getPosVector() {
+        return new Vector2Dv1(xPos, yPos);
     }
 
     @Override

@@ -26,7 +26,9 @@ public class ImgRecFaseTwo {
 
 
         // Create a new VideoCapture object to get frames from the webcam
-        capture = new VideoCapture(3);
+        System.err.println("loading webcam");
+        capture = new VideoCapture(1);
+        System.err.println("changing frame size");
         capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 640);
         capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 360);
         System.err.println("Webcam loaded");
@@ -55,7 +57,7 @@ public class ImgRecFaseTwo {
         keypoints = new MatOfKeyPoint();
 
     }
-    public List<Ball> captureBalls(){
+    public ArrayList<Ball> captureBalls(){
         // Continuously capture frames from the webcam and display them on the screen
         frame = new Mat();
         // Read a new frame from the webcam
@@ -71,7 +73,7 @@ public class ImgRecFaseTwo {
         //Detect the balls, and but them into MatOfKeyPoints keypoints
         blobDetec.detect(frame, keypoints);
         //List of balls
-        List<Ball> balls = new ArrayList<>();
+        ArrayList<Ball> balls = new ArrayList<>();
         List<KeyPoint> keypointList = new ArrayList<>();
         if(keypoints.get(0,0) != null) {
             //making keypoints into a list

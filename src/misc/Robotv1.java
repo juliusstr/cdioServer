@@ -1,15 +1,16 @@
 package misc;
 
 import misc.ball.Ball;
+import misc.ball.BallClassifierPhaseTwo;
 
-public class Robot {
+public class Robotv1 {
     private double xPos,
                 yPos;
-    private Vector2D directionVector;
+    private Vector2Dv1 directionVector;
     private double  speed,
                     angelSpeed;
 
-    public Robot(double xPos, double yPos, Vector2D directionVector) {
+    public Robotv1(double xPos, double yPos, Vector2Dv1 directionVector) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.directionVector = directionVector.clone();
@@ -38,11 +39,11 @@ public class Robot {
         yPos = y;
     }
 
-    public Vector2D getDirection() {
+    public Vector2Dv1 getDirection() {
         return directionVector;
     }
 
-    public void setDirection(Vector2D directionVector) {
+    public void setDirection(Vector2Dv1 directionVector) {
         this.directionVector = directionVector;
     }
 
@@ -65,14 +66,14 @@ public class Robot {
     public void updatePos(Ball a, Ball b){
         Ball back = b;
         Ball front  = a;
-        if (!back.getColor().equals(BallClassifier.BALCK)){
+        if (!back.getColor().equals(BallClassifierPhaseTwo.BLACK)){
             Ball temp = front;
             front = back;
             back = temp;
         }
         setPos(front.getxPos(), front.getyPos());
-        Vector2D dir = new Vector2D(front.getxPos(), front.getyPos());
-        dir.subtract(new Vector2D(back.getxPos(), back.getyPos()));
+        Vector2Dv1 dir = new Vector2Dv1(front.getxPos(), front.getyPos());
+        dir.subtract(new Vector2Dv1(back.getxPos(), back.getyPos()));
         setDirection(dir);
     }
 }
