@@ -1,33 +1,18 @@
 package imageRecognition;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
-import org.opencv.videoio.VideoCapture;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.highgui.HighGui;
-import org.opencv.core.MatOfPoint3;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.MatOfPoint2f;
-import org.opencv.core.CvType;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.imgproc.Moments;
-import org.opencv.core.Rect;
-import org.opencv.core.RotatedRect;
-import org.opencv.core.TermCriteria;
-import org.opencv.imgproc.Subdiv2D;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.opencv.core.*;
+import org.opencv.highgui.HighGui;
+import org.opencv.imgproc.Imgproc;
+import org.opencv.videoio.VideoCapture;
+
 public class ImgRec {
     public static void main(String[] args) {
         // Load the OpenCV library
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         // Create a new VideoCapture object to get frames from the webcam
-        VideoCapture capture = new VideoCapture(1);
+        VideoCapture capture = new VideoCapture(2);
+
 
         // Check if the VideoCapture object was successfully initialized
         if (!capture.isOpened()) {
@@ -76,6 +61,7 @@ public class ImgRec {
                 Imgproc.circle(frame, center, radius, new Scalar(0, 0, 255), 2);
                 Imgproc.circle(grayImage, center, radius, new Scalar(0, 0, 255), 2);
             }
+
             // Display the current frame on the screen
             HighGui.imshow("Webcam Feed", frame);
             HighGui.imshow("Procesed Feed", grayImage);
