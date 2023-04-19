@@ -6,9 +6,8 @@
 package routePlaner;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import misc.Ball;
+import misc.ball.Ball;
 import misc.Robot;
 import misc.Vector2D;
 import nav.NavAlgoFaseOne;
@@ -42,6 +41,7 @@ public class RoutePlanerFaseOne {
             command = this.nav.nextCommand();
             if (command.equals("stop -t;stop -d") || command.equals("stop -t -d")) {
                 this.balls.remove(ball);
+                command = "collect -g4 -s3";
                 //command = this.nextCommand();
             }
             return command;

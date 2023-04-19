@@ -1,5 +1,7 @@
 package misc;
 
+import misc.ball.Ball;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ public class BallClassifier {
                 ball.setColor(WHITE);
                 balls.add(ball);
             }*/
-            System.out.println(ball.getColor());
+            System.out.println(ball.getColor() + ",  radius: " + ball.getRadius());
             ball.setColor(colorCorection(ball.getColor()));
             if (ball.getColor().equals(WHITE)){
                 balls.add(ball);
