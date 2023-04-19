@@ -13,6 +13,7 @@ public class ImgRec {
         // Create a new VideoCapture object to get frames from the webcam
         VideoCapture capture = new VideoCapture(2);
 
+
         // Check if the VideoCapture object was successfully initialized
         if (!capture.isOpened()) {
             System.err.println("Failed to open webcam!");

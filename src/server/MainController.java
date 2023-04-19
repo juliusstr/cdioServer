@@ -1,10 +1,11 @@
 package server;
 
 import exceptions.NoGoodCircleData;
-import imageRecognition.ImgRec;
-import imageRecognition.ImgRecFaseOne;
-import misc.*;
+import imageRecognition.ImgRecFaseTwo;
+import misc.Ball;
+import misc.BallStabilizer;
 import misc.Robot;
+import misc.Vector2D;
 import nav.NavAlgoFaseOne;
 import org.opencv.core.Core;
 import routePlaner.RoutePlanerFaseOne;
@@ -86,7 +87,7 @@ class ServerController {
     public void start(int port) throws IOException, InterruptedException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         System.err.println("lib loaded");
-        ImgRecFaseOne imgRec = new ImgRecFaseOne();
+        ImgRecFaseTwo imgRec = new ImgRecFaseTwo();
 
         List<Ball> balls = new ArrayList<>();
         RoutePlanerFaseOne routePlanerFaseOne = new RoutePlanerFaseOne();
