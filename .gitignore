@@ -1,0 +1,15 @@
+/out/production/cdioServer/misc/Ball.class
+/out/production/cdioServer/misc/BallClassifier.class
+/out/production/cdioServer/misc/BallStabilizer.class
+/out/production/cdioServer/imageRecognition/ImgRec.class
+/out/production/cdioServer/imageRecognition/ImgRecFaseOne.class
+/out/production/cdioServer/imageRecognition/ImgRecV2.class
+/out/production/cdioServer/server/MainController.class
+/out/production/cdioServer/nav/NavAlgoFaseOne.class
+/out/production/cdioServer/exceptions/NoGoodCircleData.class
+/out/production/cdioServer/misc/Robot.class
+/out/production/cdioServer/routePlaner/RoutePlanerFaseOne.class
+/out/production/cdioServer/server/Server.class
+/out/production/cdioServer/server/ServerController.class
+/out/production/cdioServer/server/TestMain.class
+/out/production/cdioServer/misc/Vector2D.class
