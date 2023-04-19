@@ -35,7 +35,7 @@ public class BallClassifierPhaseTwo {
     }
 
     private static Color colorCorection(@NotNull Color color){
-        if (color.getRed() < 110 && color.getBlue() < 110 && color.getGreen() < 110){
+        if (color.getRed() < 150 && color.getBlue() < 150 && color.getGreen() < 150){
             return BLACK;
         }
         if(color.getRed() > 200 && color.getBlue() < 150 && color.getGreen() < 150){

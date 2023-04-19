@@ -12,7 +12,7 @@ public class BallStabilizerPhaseTwo {
 
 
     public static final double MAX_DISTANCE_FOR_RELATION = 5;
-    public static final int TIME_TO_LIVE = 10;
+    public static final int TIME_TO_LIVE = 15;
     public static final int AGE_TO_GONE = 1;
 
 
@@ -32,10 +32,19 @@ public class BallStabilizerPhaseTwo {
             stabilizeBall(ball);
         }
         for (Ball ball :
-                balls) {
+                this.balls) {
             ball.incrementLastSeenAlive();
             if (ball.getLastSeenAlive() <= AGE_TO_GONE){
-                ball.setStatus(PrimitiveBall.Status.IN_PLAY);
+                if(ball.getStatus() != PrimitiveBall.Status.ROBOT){
+                    ball.setStatus(PrimitiveBall.Status.IN_PLAY);
+                } else {
+                    if (ball.getColor().equals(BallClassifierPhaseTwo.RED) || ball.getColor().equals(BallClassifierPhaseTwo.BLACK)){
+                        ball.setStatus(PrimitiveBall.Status.ROBOT);
+                    } else {
+                        ball.setStatus(PrimitiveBall.Status.IN_PLAY);
+                    }
+                }
+
             } else {
                 ball.setStatus(PrimitiveBall.Status.GONE);
             }
@@ -101,7 +110,7 @@ public class BallStabilizerPhaseTwo {
             if(balls.get(i).getType() != Ball.Type.BALL)
                 continue;
 
-            if(balls.get(i).getLastSeenAlive() < TIME_TO_LIVE) {
+            if(balls.get(i).getLastSeenAlive() > TIME_TO_LIVE) {
                 balls.remove(i--);
                 continue;
             }
@@ -124,7 +133,7 @@ public class BallStabilizerPhaseTwo {
             if(balls.get(i).getStatus() != PrimitiveBall.Status.ROBOT)
                 continue;
 
-            if(balls.get(i).getLastSeenAlive() < TIME_TO_LIVE) {
+            if(balls.get(i).getLastSeenAlive() > TIME_TO_LIVE) {
                 balls.remove(i--);
                 continue;
             }

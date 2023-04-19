@@ -7,6 +7,7 @@ import imageRecognition.ImgRecFaseTwo;
 import misc.Robotv1;
 import misc.Vector2Dv1;
 import misc.ball.Ball;
+import misc.ball.BallClassifierPhaseTwo;
 import misc.ball.BallStabilizerPhaseTwo;
 import misc.ball.PrimitiveBall;
 import org.opencv.core.Core;
@@ -25,7 +26,7 @@ public class MainClient {
     private static BufferedReader in;
 
 
-    public static void main(String[] args) throws IOException, NoDataException, TypeException {
+    public static void main(String[] args) throws IOException, TypeException {
 
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         System.err.println("lib loaded");
@@ -34,7 +35,8 @@ public class MainClient {
         ArrayList<Ball> balls = new ArrayList<>();
         RoutePlanerFaseOne routePlanerFaseOne = new RoutePlanerFaseOne();
 
-        Ball initBall = new Ball(0,0,0,null,false, PrimitiveBall.Status.UNKNOWN, -1, Ball.Type.UKNOWN);
+        Ball initBall = new Ball(0,0,0, BallClassifierPhaseTwo.BLACK,false, PrimitiveBall.Status.UNKNOWN, -1, Ball.Type.UKNOWN);
+        Ball initBall2 = new Ball(1,1,0,BallClassifierPhaseTwo.RED,false, PrimitiveBall.Status.UNKNOWN, -1, Ball.Type.UKNOWN);
 
         Robotv1 robotv1 = new Robotv1(0,0,new Vector2Dv1(1,1));
 
@@ -53,11 +55,20 @@ public class MainClient {
         routePlanerFaseOne.clearBalls();
         stabilizer.stabilizeBalls(balls);
 
-        for (Ball ball :
-                stabilizer.getStabelBalls()) {
-            routePlanerFaseOne.addBallToList(ball);
+        ArrayList<Ball> roBall = new ArrayList<>();
+        try {
+            ArrayList<Ball> balls1 = stabilizer.getStabelBalls();
+            for (Ball ball : balls1) {
+                routePlanerFaseOne.addBallToList(ball);
+            }
+            //roBall = stabilizer.getStabelRobotCirce();
+        } catch (NoDataException e) {
+            //throw new RuntimeException(e);
+
         }
-        ArrayList<Ball> roBall = stabilizer.getStabelRobotCirce();
+        roBall.add(initBall);
+        roBall.add(initBall2);
+
         robotv1.updatePos(roBall.get(0), roBall.get(1));
 
         routePlanerFaseOne.addBallToList(initBall);
@@ -73,13 +84,20 @@ public class MainClient {
                 stabilizer.stabilizeBalls(balls);
                 routePlanerFaseOne.clearBalls();
 
-                for (Ball ball :
-                        stabilizer.getStabelBalls()) {
-                    routePlanerFaseOne.addBallToList(ball);
+                try {
+                    ArrayList<Ball> balls1 = stabilizer.getStabelBalls();
+                    for (Ball ball : balls1) {
+                        routePlanerFaseOne.addBallToList(ball);
+                    }
+                    roBall = stabilizer.getStabelRobotCirce();
+                    robotv1.updatePos(roBall.get(0), roBall.get(1));
+                    respons = routePlanerFaseOne.nextCommand();
+                } catch (NoDataException e) {
+                    respons = "stop -d -t";
+                } catch (IndexOutOfBoundsException e){
+                    respons = "turn -r -s0.02";
                 }
-                roBall = stabilizer.getStabelRobotCirce();
-                robotv1.updatePos(roBall.get(0), roBall.get(1));
-                respons = routePlanerFaseOne.nextCommand();
+
 
 
                 out.println(respons);

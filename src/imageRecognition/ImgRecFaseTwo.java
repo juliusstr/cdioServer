@@ -27,7 +27,7 @@ public class ImgRecFaseTwo {
 
         // Create a new VideoCapture object to get frames from the webcam
         System.err.println("loading webcam");
-        capture = new VideoCapture(1);
+        capture = new VideoCapture(2);
         System.err.println("changing frame size");
         capture.set(Videoio.CAP_PROP_FRAME_WIDTH, 640);
         capture.set(Videoio.CAP_PROP_FRAME_HEIGHT, 360);
@@ -87,6 +87,7 @@ public class ImgRecFaseTwo {
                 balls.add(new Ball((int) keypoint.pt.x, (int) keypoint.pt.y, 0, new Color(r, g, b), true, PrimitiveBall.Status.UNKNOWN,0, Ball.Type.UKNOWN));
             }
         }
+
         return balls;
     }
 
